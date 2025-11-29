@@ -1,0 +1,9 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Left Blue Shape -->
+  <path d="M60 40H180L110 150H0L60 40Z" fill="#147AFF"/>
+
+  <!-- Right Purple Shape -->
+  <path d="M65 165L40 210H160L230 100H150L110 165H65Z" fill="#5044E5"/>
+
+</svg>

@@ -1,0 +1,7 @@
+deployment:
+  tasks:
+    - export PATH=/opt/cpanel/nodejs20/bin:$PATH
+    - cd main
+    - npm install
+    - npm run build
+    - rsync -av --delete main/dist/ /home/bengalsys/public_html/
