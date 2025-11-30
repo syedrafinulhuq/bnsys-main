@@ -1,7 +1,17 @@
+---
 deployment:
   tasks:
-    - export PATH=/opt/cpanel/nodejs20/bin:$PATH
-    - cd main
-    - npm install
+    - export NODE_VERSION=18
+    - source /opt/cpanel/ea-nodejs18/enable
+
+    # Install dependencies
+    - npm ci --silent
+
+    # Build the Vite app
     - npm run build
-    - rsync -av --delete main/dist/ /home/bengalsys/public_html/
+
+    # Clean public_html
+    - rm -rf /home/bengalsys/public_html/*
+
+    # Deploy dist folder to public_html
+    - cp -R dist/* /home/bengalsys/public_html/
