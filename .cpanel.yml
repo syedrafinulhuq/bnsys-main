@@ -1,21 +1,9 @@
 ---
 deployment:
   tasks:
-    # Enable Node.js 18 on cPanel
-    - export NODE_VERSION=18
-    - source /opt/cpanel/ea-nodejs18/enable
-
-    # Go to the repository directory cPanel cloned
-    - cd /home/bengalsys/repositories/bnsys-main
-
-    # Install dependencies
-    - npm ci --silent || npm install --silent
-
-    # Build Vite project
-    - npm run build
-
-    # Clear existing public_html
-    - rm -rf /home/bengalsys/public_html/*
-
-    # Copy the built files to public_html
-    - cp -R dist/* /home/bengalsys/public_html/
+    - export NVM_DIR="$HOME/.nvm"
+    - source "$NVM_DIR/nvm.sh"
+    - /opt/cpanel/ea-nodejs20/bin/npm install
+    - /opt/cpanel/ea-nodejs20/bin/npm run build
+    - rm -rf ~/public_html/*
+    - cp -r dist/* ~/public_html/
