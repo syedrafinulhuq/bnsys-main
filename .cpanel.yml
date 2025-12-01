@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - /opt/cpanel/ea-nodejs20/bin/npm install --prefix /home/bengalsys/repositories/bnsys-main
+    - /opt/cpanel/ea-nodejs20/bin/npm run build --prefix /home/bengalsys/repositories/bnsys-main
+    - rm -rf /home/bengalsys/public_html/*
+    - cp -r /home/bengalsys/repositories/bnsys-main/dist/* /home/bengalsys/public_html/
